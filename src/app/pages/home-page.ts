@@ -1,0 +1,75 @@
+import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-home-page',
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">Desenvolvedor Full Stack</p>
+        <h1>Construo produtos digitais premium, modernos e de alto impacto.</h1>
+        <p>
+          Sou Pedro Igor, desenvolvedor especializado em criar experiências digitais sofisticadas,
+          com arquitetura sólida, performance e visão de produto.
+        </p>
+        <div class="actions">
+          <a routerLink="/projetos" class="btn primary">Ver Projetos</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer" class="btn">GitHub</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="btn">LinkedIn</a>
+          <a href="mailto:pedro@pedro.dev" class="btn">Download CV</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="avatar">PI</div>
+        <div class="info-card">
+          <h3>Disponível para</h3>
+          <ul>
+            <li>Aplicações web sob medida</li>
+            <li>Plataformas escaláveis</li>
+            <li>Integrações e automações</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <article class="stat-card">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </article>
+      }
+    </section>
+  `,
+  styles: [
+    `
+      .hero-card { display:grid; grid-template-columns:1.2fr .8fr; gap:1rem; padding:2rem; border-radius:32px; background:linear-gradient(135deg, #141414 0%, #1c1c1c 100%); border:1px solid rgba(255,255,255,.08); box-shadow:0 24px 80px rgba(0,0,0,.3); }
+      .eyebrow { color:#06b6d4; text-transform:uppercase; letter-spacing:.24em; font-size:.75rem; font-weight:700; }
+      h1 { font-size:clamp(2rem, 4vw, 3.2rem); color:#f8fafc; line-height:1.05; margin:0.5rem 0 1rem; }
+      .hero-copy p { color:#a1a1aa; line-height:1.8; max-width:650px; }
+      .actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.2rem; }
+      .btn { padding:.8rem 1rem; text-decoration:none; border-radius:999px; color:#f8fafc; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04); }
+      .btn.primary { background:linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%); border:none; }
+      .hero-side { display:flex; flex-direction:column; gap:1rem; }
+      .avatar { width:140px; height:140px; border-radius:50%; display:grid; place-items:center; font-size:2rem; font-weight:700; background:radial-gradient(circle at top left, #8b5cf6, #06b6d4 50%, #0a0a0a 100%); color:#fff; }
+      .info-card, .stat-card { padding:1rem; border-radius:24px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+      .info-card h3 { margin:0 0 .6rem; color:#f8fafc; }
+      .info-card ul { margin:0; padding-left:1rem; color:#a1a1aa; line-height:1.8; }
+      .stats-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:1rem; margin-top:1rem; }
+      .stat-card strong { display:block; font-size:1.4rem; color:#f8fafc; }
+      .stat-card span { color:#a1a1aa; }
+      @media (max-width: 900px) { .hero-card { grid-template-columns:1fr; } .stats-grid { grid-template-columns:1fr 1fr; } }
+      @media (max-width: 560px) { .hero-card { padding:1rem; } .stats-grid { grid-template-columns:1fr; } }
+    `
+  ]
+})
+export class HomePageComponent {
+  protected readonly stats = [
+    { value: '+100', label: 'Projetos' },
+    { value: '+5 anos', label: 'Experiência' },
+    { value: '+30', label: 'Tecnologias' },
+    { value: '100%', label: 'Responsivo' }
+  ];
+}
