@@ -15,10 +15,9 @@ import { RouterLink } from '@angular/router';
           com arquitetura sólida, performance e visão de produto.
         </p>
         <div class="actions">
-          <a routerLink="/projetos" class="btn primary">Ver Projetos</a>
+          <a routerLink="/projetos" class="btn primary">Projetos</a>
           <a href="https://github.com" target="_blank" rel="noreferrer" class="btn">GitHub</a>
           <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="btn">LinkedIn</a>
-          <a href="mailto:pedro@pedro.dev" class="btn">Download CV</a>
         </div>
       </div>
       <div class="hero-side">
