@@ -10,10 +10,6 @@ import { RouterLink } from '@angular/router';
       <div class="breadcrumbs">Home / Projetos</div>
       <h1>Projetos</h1>
       <div class="filters">
-        <a class="active" routerLink="/projetos">Todos</a>
-        <a routerLink="/projetos">Frontend</a>
-        <a routerLink="/projetos">Backend</a>
-        <a routerLink="/projetos">Full Stack</a>
       </div>
       <div class="grid">
         @for (project of projects; track project.name) {

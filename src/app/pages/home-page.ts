@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="hero-card">
       <div class="hero-copy">
-        <p class="eyebrow">Desenvolvedor Full Stack</p>
+        <p class="eyebrow">Desenvolvedor</p>
         <h1>Construo produtos digitais premium, modernos e de alto impacto.</h1>
         <p>
           Sou Pedro Igor, desenvolvedor especializado em criar experiências digitais sofisticadas,

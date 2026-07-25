@@ -11,13 +11,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
         <a class="brand" routerLink="/">Pedro Igor</a>
         <div class="nav-links">
           <a routerLink="/sobre">Sobre</a>
-          <a routerLink="/experiencia">Experiência</a>
           <a routerLink="/projetos">Projetos</a>
-          <a routerLink="/tecnologias">Tecnologias</a>
-          <a routerLink="/certificados">Certificados</a>
           <a routerLink="/blog">Blog</a>
-          <a routerLink="/servicos">Serviços</a>
-          <a routerLink="/estatisticas">Estatísticas</a>
           <a routerLink="/contato" class="contact-pill">Contato</a>
         </div>
       </nav>
