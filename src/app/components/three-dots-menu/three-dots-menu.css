@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botão do menu com área mínima de 44x44px */
+.menu-button {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #f8fafc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.menu-button:hover {
+  opacity: 0.8;
+}
+
+.menu-button:focus-visible,
+.menu-item:focus-visible {
+  outline: 3px solid #8ec5ff;
+  outline-offset: 2px;
+}
+
+.hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.23rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #f9fafb;
+  border-radius: 999px;
+}
+
+/* Painel do menu alinhado à direita e abaixo do botão */
+.menu-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 180px;
+  background: #111827;
+  color: #f9fafb;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.menu-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  min-height: 44px;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Garantia de contraste adequado */
+.menu-item,
+.menu-button {
+  color: #f9fafb;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  :host {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .menu-panel {
+    min-width: 160px;
+  }
+}

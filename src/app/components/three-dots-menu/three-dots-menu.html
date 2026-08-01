@@ -1,0 +1,42 @@
+<div class="menu-wrapper" role="presentation">
+  <button
+    #menuButton
+    class="menu-button"
+    type="button"
+    aria-label="Abrir menu"
+    aria-haspopup="menu"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-controls]="menuId"
+    (click)="toggleMenu()"
+    (keydown.enter)="toggleMenu()"
+    (keydown.space)="toggleMenu(); $event.preventDefault()"
+  >
+    <span class="hamburger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+
+  <div
+    id="menuId"
+    class="menu-panel"
+    role="menu"
+    [class.open]="isOpen"
+    [attr.aria-hidden]="!isOpen"
+    *ngIf="isOpen"
+  >
+    <a
+      *ngFor="let option of options; let i = index"
+      class="menu-item"
+      role="menuitem"
+      [attr.aria-label]="option.label"
+      [routerLink]="option.route"
+      (click)="onItemSelect(option.action)"
+      (keydown.enter)="onItemSelect(option.action)"
+      (keydown.space)="onItemSelect(option.action); $event.preventDefault()"
+    >
+      {{ option.label }}
+    </a>
+  </div>
+</div>

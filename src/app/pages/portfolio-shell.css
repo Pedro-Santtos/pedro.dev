@@ -1,0 +1,29 @@
+.shell-layout {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.2rem;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.topbar-title {
+  font-weight: 600;
+  color: #f8fafc;
+  margin-right: auto;
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.4rem 1rem 3rem;
+}

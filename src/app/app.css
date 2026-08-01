@@ -49,8 +49,8 @@
 .contact-pill {
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-  color: #fff !important;
+  background: #f5f5f5;
+  color: #111 !important;
 }
 
 .page-content {
@@ -130,8 +130,9 @@ form label {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-  border: none;
+  background: #f5f5f5;
+  border: 1px solid #d4d4d4;
+  color: #111;
 }
 
 .avatar {
@@ -203,9 +204,9 @@ form label {
 }
 
 .filters a.active {
-  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-  color: #fff;
-  border: none;
+  background: #f5f5f5;
+  color: #111;
+  border: 1px solid #d4d4d4;
 }
 
 .tags,
@@ -249,11 +250,11 @@ textarea {
 }
 
 button {
-  border: none;
+  border: 1px solid #d4d4d4;
   border-radius: 999px;
   padding: 0.9rem 1rem;
-  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-  color: #fff;
+  background: #f5f5f5;
+  color: #111;
   font-weight: 700;
   cursor: pointer;
 }
