@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectsService } from '../services/projects.service';
 
 @Component({
   selector: 'app-project-detail-page',
@@ -46,12 +47,8 @@ export class ProjectDetailPageComponent {
   protected project: any;
 
   constructor(private route: ActivatedRoute) {
+    const projectsService = inject(ProjectsService);
     const slug = this.route.snapshot.paramMap.get('slug');
-    const projects = [
-      { slug: 'sistema-financeiro', name: 'Fluxo Admin', description: 'Painel administrativo premium com automações e gestão financeira.', image: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)', problem: 'Necessidade de centralizar dados financeiros e processos internos.', architecture: 'Arquitetura modular com frontend React e backend NestJS.', results: 'Redução de operação manual e maior clareza de gestão.' },
-      { slug: 'ecommerce', name: 'North Commerce', description: 'Loja digital com checkout e catálogo de alto padrão.', image: 'linear-gradient(135deg, #22c55e 0%, #06b6d4 100%)', problem: 'Baixa conversão e experiência inconsistente.', architecture: 'Front-end Next.js com API escalável e pagamentos integrados.', results: 'Melhora significativa na experiência de compra e conversão.' },
-      { slug: 'chatbot-ai', name: 'Atlas Studio', description: 'Plataforma interna com automações e fluxo visual.', image: 'linear-gradient(135deg, #f59e0b 0%, #8b5cf6 100%)', problem: 'Processos repetitivos e baixa visibilidade operacional.', architecture: 'Arquitetura orientada a serviços com integrações e dashboard.', results: 'Automatização de diversos processos e maior produtividade.' }
-    ];
-    this.project = projects.find((item) => item.slug === slug);
+    this.project = projectsService.getProjectBySlug(slug ?? '');
   }
 }
