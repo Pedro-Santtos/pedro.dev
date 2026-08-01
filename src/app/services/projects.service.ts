@@ -24,7 +24,7 @@ export class ProjectsService {
       year: '2026',
       description: 'Edição especial do MotoFest com experiência completa para público, marcas e parceiros.',
       tags: ['Evento', 'Branding', 'Experiência'],
-      image: 'linear-gradient(135deg, #ef4444 0%, #f59e0b 100%)',
+      image: 'url("/images/5o-pombal-motofest-2026.svg")',
       slug: '5o-pombal-motofest',
       problem: 'Centralizar a identidade do evento e criar uma experiência coesa para público, patrocinadores e comunicação.',
       architecture: 'Estrutura simples e escalável com foco em conteúdo, identidade visual e narrativa da marca do evento.',

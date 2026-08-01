@@ -10,7 +10,7 @@ import { ProjectsService } from '../services/projects.service';
       <div class="breadcrumbs">Home / Projetos / {{ project?.name }}</div>
       <h1>{{ project?.name }}</h1>
       <p class="lead">{{ project?.description }}</p>
-      <div class="banner" [style.background]="project?.image"></div>
+      <div class="banner" [style.background-image]="project?.image" [style.background-size]="'cover'" [style.background-position]="'center'" [style.background-repeat]="'no-repeat'"></div>
       <div class="grid">
         <article class="card">
           <h3>Problema resolvido</h3>

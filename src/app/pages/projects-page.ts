@@ -15,7 +15,7 @@ import { ProjectsService } from '../services/projects.service';
       <div class="grid">
         @for (project of projects; track project.name) {
           <article class="card card-clickable" [routerLink]="['/projetos', project.slug]" tabindex="0" role="button" [attr.aria-label]="'Abrir projeto ' + project.name">
-            <div class="thumb" [style.background]="project.image"></div>
+            <div class="thumb" [style.background-image]="project.image" [style.background-size]="'cover'" [style.background-position]="'center'" [style.background-repeat]="'no-repeat'"></div>
             <div class="content">
               <div class="top">
                 <span>{{ project.category }}</span>
