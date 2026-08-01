@@ -47,15 +47,15 @@ import { Component } from '@angular/core';
   `,
   styles: [
     `
-      .page-section { padding: 2rem; border-radius: 32px; background: linear-gradient(135deg, #141414, #1c1c1c); border:1px solid rgba(255,255,255,.08); }
-      .breadcrumbs { color:#06b6d4; font-size:.9rem; margin-bottom:1rem; }
-      h1 { margin:0 0 .7rem; color:#f8fafc; font-size:clamp(1.8rem, 3vw, 2.4rem); }
-      .lead { color:#a1a1aa; line-height:1.8; margin-bottom:1rem; }
+      .page-section { padding: 2rem; border-radius: 32px; background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%); border:1px solid var(--border-color); box-shadow: 0 24px 80px var(--shadow-color); }
+      .breadcrumbs { color:var(--accent); font-size:.9rem; margin-bottom:1rem; }
+      h1 { margin:0 0 .7rem; color:var(--text-primary); font-size:clamp(1.8rem, 3vw, 2.4rem); }
+      .lead { color:var(--text-secondary); line-height:1.8; margin-bottom:1rem; }
       .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem; margin-top:1rem; }
       .grid.two { grid-template-columns:repeat(2, minmax(0,1fr)); }
-      .card { padding:1rem; border-radius:24px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
-      .card h3 { margin-top:0; color:#f8fafc; }
-      .card p, .card li { color:#a1a1aa; line-height:1.8; }
+      .card { padding:1rem; border-radius:24px; background:var(--surface-elevated); border:1px solid var(--border-color); }
+      .card h3 { margin-top:0; color:var(--text-primary); }
+      .card p, .card li { color:var(--text-secondary); line-height:1.8; }
       @media (max-width: 760px) { .grid, .grid.two { grid-template-columns:1fr; } .page-section { padding:1rem; } }
     `
   ]

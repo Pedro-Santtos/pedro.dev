@@ -1,15 +1,13 @@
-<div class="menu-wrapper" role="presentation">
+<div class="menu-shell" role="presentation">
   <button
     #menuButton
     class="menu-button"
     type="button"
-    aria-label="Abrir menu"
-    aria-haspopup="menu"
-    [attr.aria-expanded]="isOpen"
+    [attr.aria-label]="isOpen() ? 'Fechar menu de navegação' : 'Abrir menu de navegação'"
+    aria-haspopup="dialog"
+    [attr.aria-expanded]="isOpen()"
     [attr.aria-controls]="menuId"
-    (click)="toggleMenu()"
-    (keydown.enter)="toggleMenu()"
-    (keydown.space)="toggleMenu(); $event.preventDefault()"
+    (click)="openMenuFromTrigger($event)"
   >
     <span class="hamburger" aria-hidden="true">
       <span></span>
@@ -18,25 +16,73 @@
     </span>
   </button>
 
-  <div
-    id="menuId"
-    class="menu-panel"
-    role="menu"
-    [class.open]="isOpen"
-    [attr.aria-hidden]="!isOpen"
-    *ngIf="isOpen"
+  <div class="drawer-backdrop" *ngIf="isOpen()" (click)="closeMenu()"></div>
+
+  <aside
+    #drawerPanel
+    [id]="menuId"
+    class="drawer-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu de navegação"
+    [attr.aria-hidden]="!isOpen()"
+    [attr.inert]="!isOpen() ? '' : null"
+    [class.is-open]="isOpen()"
+    tabindex="-1"
   >
-    <a
-      *ngFor="let option of options; let i = index"
-      class="menu-item"
-      role="menuitem"
-      [attr.aria-label]="option.label"
-      [routerLink]="option.route"
-      (click)="onItemSelect(option.action)"
-      (keydown.enter)="onItemSelect(option.action)"
-      (keydown.space)="onItemSelect(option.action); $event.preventDefault()"
-    >
-      {{ option.label }}
-    </a>
-  </div>
+    <div class="drawer-header">
+      <div class="brand" aria-label="Logotipo e nome da aplicação">
+        <div class="brand-mark" aria-hidden="true">PI</div>
+        <div class="brand-copy">
+          <span class="brand-name">PEDRO IGOR</span>
+          <span class="brand-subtitle">Portfólio</span>
+        </div>
+      </div>
+
+      <button class="icon-button" type="button" aria-label="Fechar menu" (click)="closeMenu()">
+        <span aria-hidden="true">✕</span>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegação principal">
+      <div class="nav-group">
+        <button class="group-toggle" type="button" (click)="toggleGroup('main')" [attr.aria-expanded]="isGroupExpanded('main')">
+          <span class="group-label">Explorar</span>
+          <span class="group-icon" aria-hidden="true">{{ isGroupExpanded('main') ? '▾' : '▸' }}</span>
+        </button>
+
+        <div class="nav-group-items" *ngIf="isGroupExpanded('main')">
+          <ng-container *ngFor="let option of options">
+            <a
+              class="drawer-item"
+              [class.active]="isActive(option.route)"
+              [routerLink]="option.route"
+              [attr.aria-current]="isActive(option.route) ? 'page' : null"
+              (click)="onItemSelect(option.route)"
+            >
+              <span class="drawer-icon" aria-hidden="true">{{ option.icon }}</span>
+              <span>{{ option.label }}</span>
+            </a>
+          </ng-container>
+        </div>
+
+        <div class="preferences-group">
+          <button
+            class="theme-toggle-button"
+            type="button"
+            [attr.aria-label]="themeMode() === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro'"
+            [attr.aria-pressed]="themeMode() === 'dark'"
+            (click)="toggleTheme()"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">{{ getThemeIcon() }}</span>
+            <span class="theme-toggle-copy">
+              <span class="theme-toggle-title">{{ getThemeLabel() }}</span>
+              <span class="theme-toggle-subtitle">{{ themeMode() === 'light' ? 'Alternar para escuro' : 'Alternar para claro' }}</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+    </nav>
+  </aside>
 </div>

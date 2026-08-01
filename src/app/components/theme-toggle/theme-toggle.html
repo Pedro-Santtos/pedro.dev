@@ -1,0 +1,12 @@
+<div class="theme-toggle-group" role="group" [attr.aria-label]="'Alternar tema'">
+  <button
+    class="theme-toggle-button"
+    type="button"
+    (click)="toggleTheme()"
+    [attr.aria-label]="'Tema atual: ' + currentThemeLabel()"
+    [attr.aria-pressed]="themeMode() === 'dark'"
+  >
+    <span aria-hidden="true">{{ currentThemeIcon() }}</span>
+    <span>{{ currentThemeLabel() }}</span>
+  </button>
+</div>
